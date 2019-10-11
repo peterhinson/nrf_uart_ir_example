@@ -9,7 +9,7 @@
 #define IR_CARRIER_COUNTER              NRF_TIMER2
 #define IR_CARRIER_COUNTER_IRQn         TIMER2_IRQn
 #define IR_CARRIER_COUNTER_IRQHandler   TIMER2_IRQHandler
-#define IR_CARRIER_COUNTER_IRQ_Priority NRF_APP_PRIORITY_HIGH
+#define IR_CARRIER_COUNTER_IRQ_Priority APP_IRQ_PRIORITY_HIGH
 
 #define IR_PPI_CH_A         0
 #define IR_PPI_CH_B         1
