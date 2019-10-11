@@ -228,14 +228,14 @@ static void nus_data_handler(ble_nus_evt_t *p_evt)
     }
 
     // IR example
-    NRF_LOG_DEBUG("Writing with IR");
+    NRF_LOG_INFO("Transmitting 0x%02x over IR", p_evt->params.rx_data.p_data[0]);
     // Send the first byte of the UART data by implementing the NEC protocol
     // Carrier on time is always 560us, and the length of the break determines the bit value
     static uint16_t ir_message[32];
     uint32_t ir_buffer_index = 0;
     for (int bit = 0; bit < 8; bit++)
     {
-      if ((p_data[0] >> bit) & 0x01)
+      if ((p_evt->params.rx_data.p_data[0] >> bit) & 0x01)
       {
         // 560us on, 2.25ms time until next symbol
         ir_message[ir_buffer_index++] = 560;
